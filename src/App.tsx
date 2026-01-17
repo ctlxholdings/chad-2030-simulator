@@ -35,19 +35,16 @@ function App() {
         {/* Left column: Controls */}
         <div className="lg:col-span-1">
           <div className="sticky top-32">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-bold text-gray-900">Controls</h2>
-              <button
-                onClick={resetToDefaults}
-                className="
-                  text-sm text-brand-burgundy hover:underline
-                  focus:outline-none focus:ring-2 focus:ring-brand-burgundy focus:ring-offset-2
-                "
-              >
-                Reset to defaults
-              </button>
-            </div>
             <ControlPanel />
+            <button
+              onClick={resetToDefaults}
+              className="
+                w-full mt-4 py-2 text-sm text-brand-burgundy hover:underline
+                focus:outline-none focus:ring-2 focus:ring-brand-burgundy focus:ring-offset-2
+              "
+            >
+              Reset to defaults
+            </button>
           </div>
         </div>
 
