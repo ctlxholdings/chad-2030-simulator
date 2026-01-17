@@ -15,6 +15,39 @@ export function ControlPanel() {
 
   return (
     <div className="space-y-4 sm:space-y-6 overflow-hidden">
+      {/* Portfolio Section */}
+      <section className="bg-white rounded-lg shadow p-4">
+        <h2 className="text-lg font-bold text-brand-burgundy mb-4 pb-2 border-b">
+          Portfolio
+        </h2>
+        <div className="space-y-5">
+          <Slider
+            label="Projects to Activate"
+            value={controls.nActive}
+            min={20}
+            max={268}
+            step={1}
+            onChange={(nActive) =>
+              updateControls({
+                nActive,
+                nChampion: Math.min(controls.nChampion, nActive),
+              })
+            }
+            formatValue={(v) => `${v} projects`}
+            description="Number of projects entering the pipeline"
+          />
+
+          <ModalitySliders
+            pctGovLed={controls.pctGovLed}
+            pctPPP={controls.pctPPP}
+            pctPrivate={controls.pctPrivate}
+            onChange={({ pctGovLed, pctPPP, pctPrivate }) =>
+              updateControls({ pctGovLed, pctPPP, pctPrivate })
+            }
+          />
+        </div>
+      </section>
+
       {/* Interventions Section */}
       <section className="bg-white rounded-lg shadow p-4">
         <h2 className="text-lg font-bold text-brand-burgundy mb-4 pb-2 border-b">
@@ -48,39 +81,6 @@ export function ControlPanel() {
             onChange={(nChampion) => updateControls({ nChampion })}
             formatValue={(v) => `${v} projects`}
             description="Flagship projects with senior government champion"
-          />
-        </div>
-      </section>
-
-      {/* Portfolio Section */}
-      <section className="bg-white rounded-lg shadow p-4">
-        <h2 className="text-lg font-bold text-brand-burgundy mb-4 pb-2 border-b">
-          Portfolio
-        </h2>
-        <div className="space-y-5">
-          <Slider
-            label="Projects to Activate"
-            value={controls.nActive}
-            min={20}
-            max={268}
-            step={1}
-            onChange={(nActive) =>
-              updateControls({
-                nActive,
-                nChampion: Math.min(controls.nChampion, nActive),
-              })
-            }
-            formatValue={(v) => `${v} projects`}
-            description="Number of projects entering the pipeline"
-          />
-
-          <ModalitySliders
-            pctGovLed={controls.pctGovLed}
-            pctPPP={controls.pctPPP}
-            pctPrivate={controls.pctPrivate}
-            onChange={({ pctGovLed, pctPPP, pctPrivate }) =>
-              updateControls({ pctGovLed, pctPPP, pctPrivate })
-            }
           />
         </div>
       </section>
