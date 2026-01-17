@@ -18,7 +18,7 @@ export function Layout({ children }: LayoutProps) {
         <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6 overflow-x-hidden">{children}</div>
       </main>
       <footer className="bg-gray-800 text-gray-300 text-center py-4 text-sm">
-        <p>Chad 2030 Pipeline Simulator - Decision Support Tool</p>
+        <p>Chad Connection 2030 - Project Pipeline Simulator</p>
         <p className="text-xs mt-1 opacity-75">
           All outputs are illustrative projections based on model assumptions
         </p>

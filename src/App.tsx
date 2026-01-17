@@ -54,18 +54,18 @@ function App() {
         {/* Right column: Output panels */}
         <div className="lg:col-span-2 overflow-hidden">
           {/* Tab navigation */}
-          <div className="mb-4 sm:mb-6 border-b border-gray-200 overflow-x-auto -mx-3 px-3 sm:mx-0 sm:px-0">
-            <nav className="flex gap-1 min-w-max" aria-label="Output sections">
+          <div className="mb-4 sm:mb-6 overflow-x-auto -mx-3 px-3 sm:mx-0 sm:px-0">
+            <nav className="flex gap-2 min-w-max bg-gray-100 p-1 rounded-lg" aria-label="Output sections">
               {TABS.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   className={`
-                    px-4 py-3 text-sm font-medium border-b-2 transition-colors
+                    px-4 py-2 text-sm font-medium rounded-md transition-all
                     ${
                       activeTab === tab.id
-                        ? 'border-brand-burgundy text-brand-burgundy'
-                        : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300'
+                        ? 'bg-brand-burgundy text-white shadow-sm'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200'
                     }
                   `}
                   aria-selected={activeTab === tab.id}

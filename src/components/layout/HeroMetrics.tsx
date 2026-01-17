@@ -19,7 +19,7 @@ export function HeroMetrics() {
   const status = outputs?.fiscalStatus ?? 'GREEN';
 
   return (
-    <div className="bg-white border-b border-gray-200 sticky top-0 z-50 overflow-hidden">
+    <div className="bg-white border-b border-gray-200 sticky top-[52px] sm:top-[60px] z-40 overflow-hidden">
       <div className="max-w-7xl mx-auto px-2 sm:px-4 py-2 sm:py-3">
         <div className="flex items-center justify-between gap-2 sm:gap-4 hero-metrics">
           {/* FIDs */}
