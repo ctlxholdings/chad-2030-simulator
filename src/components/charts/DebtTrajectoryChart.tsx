@@ -32,7 +32,7 @@ export function DebtTrajectoryChart({ data }: DebtTrajectoryChartProps) {
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={chartData}
-          margin={{ top: 5, right: 5, left: -15, bottom: 0 }}
+          margin={{ top: 5, right: 5, left: 0, bottom: 0 }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
           <XAxis
@@ -41,11 +41,12 @@ export function DebtTrajectoryChart({ data }: DebtTrajectoryChartProps) {
             axisLine={{ stroke: '#E5E7EB' }}
           />
           <YAxis
-            domain={[0, 50]}
+            domain={[0, 40]}
             tick={{ fill: '#6B7280', fontSize: 10 }}
             axisLine={{ stroke: '#E5E7EB' }}
             tickFormatter={(v) => `${v}%`}
-            width={40}
+            width={45}
+            ticks={[0, 10, 20, 30, 40]}
           />
           <Tooltip
             contentStyle={{

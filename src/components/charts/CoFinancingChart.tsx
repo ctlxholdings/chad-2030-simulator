@@ -20,6 +20,13 @@ interface CoFinancingChartProps {
   data: AnnualFiscalData[];
 }
 
+// Smart currency formatter for Y-axis
+function formatYAxisCurrency(v: number): string {
+  if (v >= 1000) return `$${(v / 1000).toFixed(1)}B`;
+  if (v > 0) return `$${v.toFixed(0)}M`;
+  return '$0';
+}
+
 export function CoFinancingChart({ data }: CoFinancingChartProps) {
   const chartData = data.map((d) => ({
     year: d.year.toString(),
@@ -33,7 +40,7 @@ export function CoFinancingChart({ data }: CoFinancingChartProps) {
       <ResponsiveContainer width="100%" height="100%">
         <ComposedChart
           data={chartData}
-          margin={{ top: 5, right: 5, left: -15, bottom: 0 }}
+          margin={{ top: 5, right: 5, left: 0, bottom: 0 }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
           <XAxis
@@ -44,8 +51,8 @@ export function CoFinancingChart({ data }: CoFinancingChartProps) {
           <YAxis
             tick={{ fill: '#6B7280', fontSize: 10 }}
             axisLine={{ stroke: '#E5E7EB' }}
-            tickFormatter={(v) => `$${(v / 1000).toFixed(0)}B`}
-            width={45}
+            tickFormatter={formatYAxisCurrency}
+            width={55}
           />
           <Tooltip
             contentStyle={{
@@ -101,7 +108,7 @@ export function RevenueChart({ data }: CoFinancingChartProps) {
       <ResponsiveContainer width="100%" height="100%">
         <ComposedChart
           data={chartData}
-          margin={{ top: 5, right: 5, left: -15, bottom: 0 }}
+          margin={{ top: 5, right: 5, left: 0, bottom: 0 }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
           <XAxis
@@ -112,8 +119,8 @@ export function RevenueChart({ data }: CoFinancingChartProps) {
           <YAxis
             tick={{ fill: '#6B7280', fontSize: 10 }}
             axisLine={{ stroke: '#E5E7EB' }}
-            tickFormatter={(v) => `$${(v / 1000).toFixed(0)}B`}
-            width={45}
+            tickFormatter={formatYAxisCurrency}
+            width={55}
           />
           <Tooltip
             contentStyle={{
