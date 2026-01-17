@@ -16,7 +16,7 @@ export function FiscalDetailPanel() {
     return <div className="p-4 text-gray-500">Loading...</div>;
   }
 
-  const { fiscalByYear, cofinancingTotal, breachYear, breachReason } = outputs;
+  const { fiscalByYear, cofinancingTotal } = outputs;
 
   // Get 2030 data for summary
   const data2030 = fiscalByYear.find((d) => d.year === 2030);
@@ -45,17 +45,6 @@ export function FiscalDetailPanel() {
           <StatusBadge status={data2030?.fiscalStatus ?? 'GREEN'} />
         </div>
       </div>
-
-      {/* Breach warning */}
-      {breachYear && (
-        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-          <h4 className="font-medium text-red-800 mb-1">Fiscal Breach Detected</h4>
-          <p className="text-sm text-red-700">
-            IMF limits exceeded in {breachYear}
-            {breachReason && `: ${breachReason}`}
-          </p>
-        </div>
-      )}
 
       {/* Co-financing chart */}
       <div className="bg-white rounded-lg shadow p-3 sm:p-4 overflow-hidden">

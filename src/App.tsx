@@ -4,6 +4,7 @@
 
 import { useState } from 'react';
 import { Layout } from './components/layout/Layout';
+import { HeroAlerts } from './components/layout/HeroMetrics';
 import { ControlPanel } from './components/controls/ControlPanel';
 import { FiscalDetailPanel } from './components/outputs/FiscalDetailPanel';
 import { PipelineDetailPanel } from './components/outputs/PipelineDetailPanel';
@@ -31,6 +32,9 @@ function App() {
 
   return (
     <Layout>
+      {/* Alerts at top, full width */}
+      <HeroAlerts />
+
       <div className="grid lg:grid-cols-3 gap-4 sm:gap-6 overflow-x-hidden">
         {/* Left column: Controls */}
         <div className="lg:col-span-1">
