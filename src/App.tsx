@@ -55,7 +55,7 @@ function App() {
         <div className="lg:col-span-2 overflow-hidden">
           {/* Tab navigation */}
           <div className="mb-4 sm:mb-6 overflow-x-auto -mx-3 px-3 sm:mx-0 sm:px-0">
-            <nav className="flex gap-2 min-w-max bg-gray-100 p-1 rounded-lg" aria-label="Output sections">
+            <nav className="flex gap-2 min-w-max bg-gray-200 p-1.5 rounded-lg shadow-sm" aria-label="Output sections">
               {TABS.map((tab) => (
                 <button
                   key={tab.id}

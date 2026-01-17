@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 70" fill="none">
   <!-- X symbol centered above -->
-  <text x="80" y="22" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#D4961F" text-anchor="middle">X</text>
+  <text x="80" y="22" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF" text-anchor="middle">X</text>
   <!-- CATALYX text below -->
-  <text x="80" y="52" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="600" fill="#D4961F" text-anchor="middle" letter-spacing="6">CATALYX</text>
+  <text x="80" y="52" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="600" fill="#FFFFFF" text-anchor="middle" letter-spacing="6">CATALYX</text>
 </svg>

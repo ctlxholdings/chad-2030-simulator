@@ -58,7 +58,7 @@ export function ControlPanel() {
             label="Transaction Advisor"
             checked={controls.advisor}
             onChange={(advisor) => updateControls({ advisor })}
-            description="Engage international advisor to accelerate pipeline"
+            description="Engage professional advisor to accelerate pipeline"
           />
 
           <Slider
