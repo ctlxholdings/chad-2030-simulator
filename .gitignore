@@ -33,3 +33,4 @@ coverage
 
 # PWA
 dev-dist
+.vercel

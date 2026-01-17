@@ -4,6 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 import path from 'path';
 
 export default defineConfig({
+  base: '/chad-2030/',
   plugins: [
     react(),
     VitePWA({
