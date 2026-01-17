@@ -52,9 +52,9 @@ function App() {
         </div>
 
         {/* Right column: Output panels */}
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-2 overflow-hidden">
           {/* Tab navigation */}
-          <div className="mb-4 sm:mb-6 border-b border-gray-200 overflow-x-auto">
+          <div className="mb-4 sm:mb-6 border-b border-gray-200 overflow-x-auto -mx-3 px-3 sm:mx-0 sm:px-0">
             <nav className="flex gap-1 min-w-max" aria-label="Output sections">
               {TABS.map((tab) => (
                 <button

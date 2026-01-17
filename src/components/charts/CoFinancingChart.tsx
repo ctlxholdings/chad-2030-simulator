@@ -29,39 +29,40 @@ export function CoFinancingChart({ data }: CoFinancingChartProps) {
   }));
 
   return (
-    <div className="h-72">
+    <div className="h-56 sm:h-72 w-full">
       <ResponsiveContainer width="100%" height="100%">
         <ComposedChart
           data={chartData}
-          margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
+          margin={{ top: 5, right: 5, left: -15, bottom: 0 }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
           <XAxis
             dataKey="year"
-            tick={{ fill: '#6B7280', fontSize: 12 }}
+            tick={{ fill: '#6B7280', fontSize: 10 }}
             axisLine={{ stroke: '#E5E7EB' }}
           />
           <YAxis
-            tick={{ fill: '#6B7280', fontSize: 12 }}
+            tick={{ fill: '#6B7280', fontSize: 10 }}
             axisLine={{ stroke: '#E5E7EB' }}
             tickFormatter={(v) => `$${(v / 1000).toFixed(0)}B`}
+            width={45}
           />
           <Tooltip
             contentStyle={{
               backgroundColor: 'white',
               border: '1px solid #E5E7EB',
               borderRadius: '6px',
-              fontSize: '12px',
+              fontSize: '11px',
             }}
             formatter={(value: number, name: string) => [
               formatCurrency(value),
-              name === 'demand' ? 'Co-Financing Demand' : 'Fiscal Space',
+              name === 'demand' ? 'Demand' : 'Space',
             ]}
           />
           <Legend
-            wrapperStyle={{ fontSize: '12px' }}
+            wrapperStyle={{ fontSize: '10px' }}
             formatter={(value) =>
-              value === 'demand' ? 'Co-Financing Demand' : 'Fiscal Space Limit'
+              value === 'demand' ? 'Demand' : 'Limit'
             }
           />
           <Bar
@@ -74,8 +75,8 @@ export function CoFinancingChart({ data }: CoFinancingChartProps) {
             type="monotone"
             dataKey="space"
             stroke="#22C55E"
-            strokeWidth={3}
-            dot={{ fill: '#22C55E', strokeWidth: 2, r: 4 }}
+            strokeWidth={2}
+            dot={{ fill: '#22C55E', strokeWidth: 1, r: 3 }}
             name="space"
           />
         </ComposedChart>
@@ -96,35 +97,36 @@ export function RevenueChart({ data }: CoFinancingChartProps) {
   }));
 
   return (
-    <div className="h-48">
+    <div className="h-40 sm:h-48 w-full">
       <ResponsiveContainer width="100%" height="100%">
         <ComposedChart
           data={chartData}
-          margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
+          margin={{ top: 5, right: 5, left: -15, bottom: 0 }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
           <XAxis
             dataKey="year"
-            tick={{ fill: '#6B7280', fontSize: 12 }}
+            tick={{ fill: '#6B7280', fontSize: 10 }}
             axisLine={{ stroke: '#E5E7EB' }}
           />
           <YAxis
-            tick={{ fill: '#6B7280', fontSize: 12 }}
+            tick={{ fill: '#6B7280', fontSize: 10 }}
             axisLine={{ stroke: '#E5E7EB' }}
             tickFormatter={(v) => `$${(v / 1000).toFixed(0)}B`}
+            width={45}
           />
           <Tooltip
             contentStyle={{
               backgroundColor: 'white',
               border: '1px solid #E5E7EB',
               borderRadius: '6px',
-              fontSize: '12px',
+              fontSize: '11px',
             }}
             formatter={(value: number) => formatCurrency(value)}
           />
-          <Bar dataKey="oil" stackId="revenue" fill="#1F2937" name="Oil Revenue" />
-          <Bar dataKey="nonOil" stackId="revenue" fill="#6B7280" name="Non-Oil Tax" />
-          <Bar dataKey="donors" stackId="revenue" fill="#D4961F" name="Donor Grants" />
+          <Bar dataKey="oil" stackId="revenue" fill="#1F2937" name="Oil" />
+          <Bar dataKey="nonOil" stackId="revenue" fill="#6B7280" name="Non-Oil" />
+          <Bar dataKey="donors" stackId="revenue" fill="#D4961F" name="Donors" />
         </ComposedChart>
       </ResponsiveContainer>
     </div>

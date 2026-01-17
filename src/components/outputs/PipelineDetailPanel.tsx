@@ -27,9 +27,9 @@ export function PipelineDetailPanel() {
   const totalActivated = controls.nActive;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6 w-full max-w-full overflow-hidden">
       {/* Summary metrics */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
         <MetricCard
           label="Projects Activated"
           value={formatNumber(totalActivated)}
@@ -53,17 +53,19 @@ export function PipelineDetailPanel() {
       </div>
 
       {/* FIDs by year chart */}
-      <div className="bg-white rounded-lg shadow p-4">
-        <h3 className="font-bold text-gray-900 mb-4">FIDs by Year</h3>
-        <FIDsChart data={pipelineByYear} />
+      <div className="bg-white rounded-lg shadow p-3 sm:p-4 overflow-hidden">
+        <h3 className="font-bold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">FIDs by Year</h3>
+        <div className="w-full overflow-hidden">
+          <FIDsChart data={pipelineByYear} />
+        </div>
         <p className="text-xs text-gray-500 mt-2">
-          Projects reaching Financial Close each year. Golden bar indicates final year.
+          Projects reaching Financial Close each year.
         </p>
       </div>
 
       {/* Pipeline funnel */}
-      <div className="bg-white rounded-lg shadow p-4">
-        <h3 className="font-bold text-gray-900 mb-4">Pipeline Funnel</h3>
+      <div className="bg-white rounded-lg shadow p-3 sm:p-4 overflow-hidden">
+        <h3 className="font-bold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">Pipeline Funnel</h3>
         <PipelineFunnel
           activated={totalActivated}
           dropsByGate={dropsByGate}
@@ -154,10 +156,10 @@ function MetricCard({
   sublabel: string;
 }) {
   return (
-    <div className="bg-gray-50 rounded-lg p-3">
-      <div className="text-xs text-gray-500 mb-1">{label}</div>
-      <div className="text-lg font-bold text-gray-900">{value}</div>
-      <div className="text-xs text-gray-400">{sublabel}</div>
+    <div className="bg-gray-50 rounded-lg p-2 sm:p-3 overflow-hidden">
+      <div className="text-xs text-gray-500 mb-1 truncate">{label}</div>
+      <div className="text-base sm:text-lg font-bold text-gray-900 truncate">{value}</div>
+      <div className="text-xs text-gray-400 truncate">{sublabel}</div>
     </div>
   );
 }

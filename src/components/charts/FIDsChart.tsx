@@ -26,18 +26,19 @@ export function FIDsChart({ data }: FIDsChartProps) {
   }));
 
   return (
-    <div className="h-64">
+    <div className="h-48 sm:h-64 w-full">
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+        <BarChart data={chartData} margin={{ top: 5, right: 5, left: -15, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
           <XAxis
             dataKey="year"
-            tick={{ fill: '#6B7280', fontSize: 12 }}
+            tick={{ fill: '#6B7280', fontSize: 10 }}
             axisLine={{ stroke: '#E5E7EB' }}
           />
           <YAxis
-            tick={{ fill: '#6B7280', fontSize: 12 }}
+            tick={{ fill: '#6B7280', fontSize: 10 }}
             axisLine={{ stroke: '#E5E7EB' }}
+            width={35}
           />
           <Tooltip
             contentStyle={{
@@ -75,25 +76,26 @@ export function CumulativeFIDsChart({ data }: FIDsChartProps) {
   }));
 
   return (
-    <div className="h-48">
+    <div className="h-40 sm:h-48 w-full">
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+        <BarChart data={chartData} margin={{ top: 5, right: 5, left: -15, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
           <XAxis
             dataKey="year"
-            tick={{ fill: '#6B7280', fontSize: 12 }}
+            tick={{ fill: '#6B7280', fontSize: 10 }}
             axisLine={{ stroke: '#E5E7EB' }}
           />
           <YAxis
-            tick={{ fill: '#6B7280', fontSize: 12 }}
+            tick={{ fill: '#6B7280', fontSize: 10 }}
             axisLine={{ stroke: '#E5E7EB' }}
+            width={35}
           />
           <Tooltip
             contentStyle={{
               backgroundColor: 'white',
               border: '1px solid #E5E7EB',
               borderRadius: '6px',
-              fontSize: '12px',
+              fontSize: '11px',
             }}
           />
           <Bar dataKey="cumulative" fill="#C1272D" radius={[4, 4, 0, 0]} />

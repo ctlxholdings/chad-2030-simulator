@@ -26,9 +26,9 @@ export function InvestmentDetailPanel() {
   const avgProjectSize = nFid > 0 ? investmentTotal / nFid : 0;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6 w-full max-w-full overflow-hidden">
       {/* Summary metrics */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
         <MetricCard
           label="Total Investment"
           value={formatCurrency(investmentTotal)}
@@ -53,8 +53,8 @@ export function InvestmentDetailPanel() {
       </div>
 
       {/* Investment by modality */}
-      <div className="bg-white rounded-lg shadow p-4">
-        <h3 className="font-bold text-gray-900 mb-4">Investment by Modality</h3>
+      <div className="bg-white rounded-lg shadow p-3 sm:p-4 overflow-hidden">
+        <h3 className="font-bold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">Investment by Modality</h3>
         <div className="grid md:grid-cols-2 gap-6">
           <div className="hidden md:block">
             <ModalityPieChart data={investmentByModality} />
@@ -89,8 +89,8 @@ export function InvestmentDetailPanel() {
       </div>
 
       {/* Investment efficiency */}
-      <div className="bg-white rounded-lg shadow p-4">
-        <h3 className="font-bold text-gray-900 mb-4">Investment Efficiency</h3>
+      <div className="bg-white rounded-lg shadow p-3 sm:p-4 overflow-hidden">
+        <h3 className="font-bold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">Investment Efficiency</h3>
         <div className="space-y-4">
           <EfficiencyMetric
             label="Average Project Size"
@@ -116,8 +116,8 @@ export function InvestmentDetailPanel() {
       </div>
 
       {/* Financing structure */}
-      <div className="bg-white rounded-lg shadow p-4">
-        <h3 className="font-bold text-gray-900 mb-4">Financing Structure</h3>
+      <div className="bg-white rounded-lg shadow p-3 sm:p-4 overflow-hidden">
+        <h3 className="font-bold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">Financing Structure</h3>
         <div className="space-y-3">
           <FinancingBar
             label="Private Capital"
@@ -153,14 +153,14 @@ function MetricCard({
   highlight?: boolean;
 }) {
   return (
-    <div className={`rounded-lg p-3 ${highlight ? 'bg-brand-burgundy text-white' : 'bg-gray-50'}`}>
-      <div className={`text-xs mb-1 ${highlight ? 'text-red-200' : 'text-gray-500'}`}>
+    <div className={`rounded-lg p-2 sm:p-3 overflow-hidden ${highlight ? 'bg-brand-burgundy text-white' : 'bg-gray-50'}`}>
+      <div className={`text-xs mb-1 truncate ${highlight ? 'text-red-200' : 'text-gray-500'}`}>
         {label}
       </div>
-      <div className={`text-lg font-bold ${highlight ? 'text-white' : 'text-gray-900'}`}>
+      <div className={`text-base sm:text-lg font-bold truncate ${highlight ? 'text-white' : 'text-gray-900'}`}>
         {value}
       </div>
-      <div className={`text-xs ${highlight ? 'text-red-200' : 'text-gray-400'}`}>
+      <div className={`text-xs truncate ${highlight ? 'text-red-200' : 'text-gray-400'}`}>
         {sublabel}
       </div>
     </div>

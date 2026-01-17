@@ -22,9 +22,9 @@ export function FiscalDetailPanel() {
   const data2030 = fiscalByYear.find((d) => d.year === 2030);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6 w-full max-w-full overflow-hidden">
       {/* Summary metrics */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
         <MetricCard
           label="Total Co-Financing"
           value={formatCurrency(cofinancingTotal)}
@@ -58,30 +58,35 @@ export function FiscalDetailPanel() {
       )}
 
       {/* Co-financing chart */}
-      <div className="bg-white rounded-lg shadow p-4">
-        <h3 className="font-bold text-gray-900 mb-4">
-          Co-Financing Demand vs Fiscal Space
+      <div className="bg-white rounded-lg shadow p-3 sm:p-4 overflow-hidden">
+        <h3 className="font-bold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">
+          Co-Financing vs Fiscal Space
         </h3>
-        <CoFinancingChart data={fiscalByYear} />
+        <div className="w-full overflow-hidden">
+          <CoFinancingChart data={fiscalByYear} />
+        </div>
         <p className="text-xs text-gray-500 mt-2">
-          Bars show annual co-financing demand from FIDs. Green line shows maximum
-          available fiscal space.
+          Bars = co-financing demand. Line = fiscal space limit.
         </p>
       </div>
 
       {/* Debt trajectory */}
-      <div className="bg-white rounded-lg shadow p-4">
-        <h3 className="font-bold text-gray-900 mb-4">Public Debt Trajectory</h3>
-        <DebtTrajectoryChart data={fiscalByYear} />
+      <div className="bg-white rounded-lg shadow p-3 sm:p-4 overflow-hidden">
+        <h3 className="font-bold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">Public Debt Trajectory</h3>
+        <div className="w-full overflow-hidden">
+          <DebtTrajectoryChart data={fiscalByYear} />
+        </div>
         <p className="text-xs text-gray-500 mt-2">
-          IMF ECF QPC requires debt below 33% of GDP. Yellow warning at 30%.
+          Ceiling: 33% GDP. Warning: 30%.
         </p>
       </div>
 
       {/* Revenue breakdown */}
-      <div className="bg-white rounded-lg shadow p-4">
-        <h3 className="font-bold text-gray-900 mb-4">Government Revenue Sources</h3>
-        <RevenueChart data={fiscalByYear} />
+      <div className="bg-white rounded-lg shadow p-3 sm:p-4 overflow-hidden">
+        <h3 className="font-bold text-gray-900 mb-3 sm:mb-4 text-sm sm:text-base">Revenue Sources</h3>
+        <div className="w-full overflow-hidden">
+          <RevenueChart data={fiscalByYear} />
+        </div>
       </div>
 
       {/* Annual fiscal table */}
@@ -130,10 +135,10 @@ function MetricCard({
   sublabel: string;
 }) {
   return (
-    <div className="bg-gray-50 rounded-lg p-3">
-      <div className="text-xs text-gray-500 mb-1">{label}</div>
-      <div className="text-lg font-bold text-gray-900">{value}</div>
-      <div className="text-xs text-gray-400">{sublabel}</div>
+    <div className="bg-gray-50 rounded-lg p-2 sm:p-3 overflow-hidden">
+      <div className="text-xs text-gray-500 mb-1 truncate">{label}</div>
+      <div className="text-base sm:text-lg font-bold text-gray-900 truncate">{value}</div>
+      <div className="text-xs text-gray-400 truncate">{sublabel}</div>
     </div>
   );
 }

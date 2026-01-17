@@ -35,9 +35,9 @@ export function ScenarioComparison() {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 w-full max-w-full overflow-hidden">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <h2 className="text-lg font-bold text-gray-900">Scenarios</h2>
         <div className="flex items-center gap-2">
           {/* View toggle */}
@@ -91,7 +91,7 @@ export function ScenarioComparison() {
 
       {/* Grid view */}
       {viewMode === 'grid' && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {allScenarios.map((scenario) => (
             <ScenarioCard
               key={scenario.id}

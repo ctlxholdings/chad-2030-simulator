@@ -28,30 +28,31 @@ export function DebtTrajectoryChart({ data }: DebtTrajectoryChartProps) {
   }));
 
   return (
-    <div className="h-48">
+    <div className="h-40 sm:h-48 w-full">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={chartData}
-          margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
+          margin={{ top: 5, right: 5, left: -15, bottom: 0 }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
           <XAxis
             dataKey="year"
-            tick={{ fill: '#6B7280', fontSize: 12 }}
+            tick={{ fill: '#6B7280', fontSize: 10 }}
             axisLine={{ stroke: '#E5E7EB' }}
           />
           <YAxis
             domain={[0, 50]}
-            tick={{ fill: '#6B7280', fontSize: 12 }}
+            tick={{ fill: '#6B7280', fontSize: 10 }}
             axisLine={{ stroke: '#E5E7EB' }}
             tickFormatter={(v) => `${v}%`}
+            width={40}
           />
           <Tooltip
             contentStyle={{
               backgroundColor: 'white',
               border: '1px solid #E5E7EB',
               borderRadius: '6px',
-              fontSize: '12px',
+              fontSize: '11px',
             }}
             formatter={(value: number) => [`${value.toFixed(1)}%`, 'Debt/GDP']}
           />
@@ -59,30 +60,18 @@ export function DebtTrajectoryChart({ data }: DebtTrajectoryChartProps) {
             y={PARAMETERS.fiscal.debtCeiling * 100}
             stroke="#EF4444"
             strokeDasharray="5 5"
-            label={{
-              value: 'IMF Ceiling (33%)',
-              position: 'right',
-              fill: '#EF4444',
-              fontSize: 10,
-            }}
           />
           <ReferenceLine
             y={PARAMETERS.fiscal.debtWarning * 100}
             stroke="#F59E0B"
             strokeDasharray="3 3"
-            label={{
-              value: 'Warning (30%)',
-              position: 'right',
-              fill: '#F59E0B',
-              fontSize: 10,
-            }}
           />
           <Line
             type="monotone"
             dataKey="debtRatio"
             stroke="#C1272D"
-            strokeWidth={3}
-            dot={{ fill: '#C1272D', strokeWidth: 2, r: 4 }}
+            strokeWidth={2}
+            dot={{ fill: '#C1272D', strokeWidth: 1, r: 3 }}
           />
         </LineChart>
       </ResponsiveContainer>

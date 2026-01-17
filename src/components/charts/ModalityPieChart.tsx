@@ -40,9 +40,9 @@ export function ModalityPieChart({ data }: ModalityPieChartProps) {
   }
 
   return (
-    <div className="h-48">
+    <div className="h-40 sm:h-48 w-full">
       <ResponsiveContainer width="100%" height="100%">
-        <PieChart>
+        <PieChart margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
           <Pie
             data={chartData}
             cx="50%"
@@ -75,7 +75,7 @@ export function ModalityPieChart({ data }: ModalityPieChartProps) {
             formatter={(value: number) => formatCurrency(value)}
           />
           <Legend
-            wrapperStyle={{ fontSize: '12px' }}
+            wrapperStyle={{ fontSize: '10px' }}
             formatter={(value) => value}
           />
         </PieChart>
