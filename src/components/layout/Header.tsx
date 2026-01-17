@@ -4,7 +4,7 @@
 
 export function Header() {
   return (
-    <header className="bg-brand-burgundy text-white overflow-hidden sticky top-0 z-50">
+    <header className="bg-brand-burgundy text-white">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2 sm:py-3">
         <div className="flex items-center justify-between gap-2">
           <div className="min-w-0">
@@ -15,7 +15,7 @@ export function Header() {
             <img
               src="/chad-2030/catalyx-logo.svg"
               alt="Catalyx"
-              className="h-10 sm:h-12 w-auto"
+              className="h-12 sm:h-14 w-auto"
             />
           </div>
         </div>
