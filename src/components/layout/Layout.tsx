@@ -18,7 +18,8 @@ export function Layout({ children }: LayoutProps) {
         <HeroMetrics />
       </div>
       {/* Spacer to push content below fixed header */}
-      <div className="h-[120px] sm:h-[130px]" />
+      {/* Header: ~64px mobile / ~80px sm+ | HeroMetrics: ~60px mobile / ~76px sm+ */}
+      <div className="h-[128px] sm:h-[160px]" />
       <main className="flex-1 bg-gray-50 overflow-x-hidden">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6 overflow-x-hidden">{children}</div>
       </main>
