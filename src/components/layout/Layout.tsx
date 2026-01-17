@@ -11,11 +11,11 @@ interface LayoutProps {
 
 export function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <Header />
       <HeroMetrics />
-      <main className="flex-1 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 py-6">{children}</div>
+      <main className="flex-1 bg-gray-50 overflow-x-hidden">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6 overflow-x-hidden">{children}</div>
       </main>
       <footer className="bg-gray-800 text-gray-300 text-center py-4 text-sm">
         <p>Chad 2030 Pipeline Simulator - Decision Support Tool</p>

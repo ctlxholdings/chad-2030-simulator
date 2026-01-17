@@ -147,18 +147,18 @@ export function ModalitySliders({
       </div>
 
       {/* Legend */}
-      <div className="flex flex-wrap gap-4 text-xs text-gray-600">
+      <div className="flex flex-wrap gap-2 sm:gap-4 text-xs text-gray-600">
         <div className="flex items-center gap-1">
-          <span className="w-3 h-3 rounded bg-brand-burgundy" />
-          <span>Gov-Led (100% cofin)</span>
+          <span className="w-3 h-3 rounded bg-brand-burgundy flex-shrink-0" />
+          <span className="whitespace-nowrap">Gov-Led (100%)</span>
         </div>
         <div className="flex items-center gap-1">
-          <span className="w-3 h-3 rounded bg-brand-gold" />
-          <span>PPP (30% cofin)</span>
+          <span className="w-3 h-3 rounded bg-brand-gold flex-shrink-0" />
+          <span className="whitespace-nowrap">PPP (30%)</span>
         </div>
         <div className="flex items-center gap-1">
-          <span className="w-3 h-3 rounded bg-gray-500" />
-          <span>Private (0% cofin)</span>
+          <span className="w-3 h-3 rounded bg-gray-500 flex-shrink-0" />
+          <span className="whitespace-nowrap">Private (0%)</span>
         </div>
       </div>
     </div>
@@ -174,9 +174,9 @@ interface SliderRowProps {
 
 function SliderRow({ label, value, onChange, color }: SliderRowProps) {
   return (
-    <div className="flex items-center gap-3">
-      <span className={`w-3 h-3 rounded ${color}`} />
-      <span className="w-28 text-sm text-gray-700">{label}</span>
+    <div className="flex items-center gap-2 sm:gap-3">
+      <span className={`w-3 h-3 rounded flex-shrink-0 ${color}`} />
+      <span className="w-20 sm:w-28 text-xs sm:text-sm text-gray-700 flex-shrink-0">{label}</span>
       <input
         type="range"
         min={0}
@@ -184,10 +184,10 @@ function SliderRow({ label, value, onChange, color }: SliderRowProps) {
         step={5}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="flex-1"
+        className="flex-1 min-w-0"
         aria-label={`${label}: ${value}%`}
       />
-      <span className="w-12 text-right text-sm font-mono">{value}%</span>
+      <span className="w-10 sm:w-12 text-right text-xs sm:text-sm font-mono flex-shrink-0">{value}%</span>
     </div>
   );
 }

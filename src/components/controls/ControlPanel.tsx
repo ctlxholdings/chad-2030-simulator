@@ -14,7 +14,7 @@ export function ControlPanel() {
   const { controls } = state;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6 overflow-hidden">
       {/* Interventions Section */}
       <section className="bg-white rounded-lg shadow p-4">
         <h2 className="text-lg font-bold text-brand-burgundy mb-4 pb-2 border-b">

@@ -31,7 +31,7 @@ function App() {
 
   return (
     <Layout>
-      <div className="grid lg:grid-cols-3 gap-6">
+      <div className="grid lg:grid-cols-3 gap-4 sm:gap-6 overflow-x-hidden">
         {/* Left column: Controls */}
         <div className="lg:col-span-1">
           <div className="sticky top-32">
@@ -54,8 +54,8 @@ function App() {
         {/* Right column: Output panels */}
         <div className="lg:col-span-2">
           {/* Tab navigation */}
-          <div className="mb-6 border-b border-gray-200">
-            <nav className="flex gap-1" aria-label="Output sections">
+          <div className="mb-4 sm:mb-6 border-b border-gray-200 overflow-x-auto">
+            <nav className="flex gap-1 min-w-max" aria-label="Output sections">
               {TABS.map((tab) => (
                 <button
                   key={tab.id}
