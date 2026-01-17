@@ -32,12 +32,12 @@ function App() {
 
   return (
     <Layout>
-      {/* Alerts at top, full width */}
+      {/* Alerts above grid */}
       <HeroAlerts />
 
-      <div className="grid lg:grid-cols-3 gap-4 sm:gap-6 overflow-x-hidden">
+      <div className="grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-hidden items-start">
         {/* Left column: Controls */}
-        <div className="lg:col-span-1">
+        <div className="md:col-span-1">
           <div className="sticky top-32">
             <ControlPanel />
             <button
@@ -53,7 +53,7 @@ function App() {
         </div>
 
         {/* Right column: Output panels */}
-        <div className="lg:col-span-2 overflow-hidden">
+        <div className="md:col-span-2 overflow-hidden">
           {/* Tab navigation */}
           <div className="mb-4 sm:mb-6 overflow-x-auto -mx-3 px-3 sm:mx-0 sm:px-0">
             <nav className="flex gap-2 min-w-max bg-gray-200 p-1.5 rounded-lg shadow-sm" aria-label="Output sections">
