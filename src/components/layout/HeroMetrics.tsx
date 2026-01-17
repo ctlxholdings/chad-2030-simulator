@@ -9,6 +9,39 @@ import { useSimulation } from '../../context/SimulationContext';
 import { StatusIndicator } from '../outputs/StatusIndicator';
 import { formatCurrency, formatNumber } from '../../utils/formatters';
 
+export function HeroAlerts() {
+  const { state } = useSimulation();
+  const { outputs } = state;
+
+  if (!outputs?.breachYear && !outputs?.boundsWarning) {
+    return null;
+  }
+
+  return (
+    <div className="max-w-7xl mx-auto px-3 sm:px-4 space-y-2 mb-4">
+      {/* Warning banner if breach */}
+      {outputs?.breachYear && (
+        <div className="px-3 py-2 bg-red-50 border border-red-200 rounded-md">
+          <p className="text-sm text-red-800">
+            <span className="font-medium">Warning:</span> Fiscal limit breached in{' '}
+            {outputs.breachYear}
+            {outputs.breachReason && ` (${outputs.breachReason})`}
+          </p>
+        </div>
+      )}
+
+      {/* Bounds warning if any */}
+      {outputs?.boundsWarning && (
+        <div className="px-3 py-2 bg-yellow-50 border border-yellow-200 rounded-md">
+          <p className="text-sm text-yellow-800">
+            <span className="font-medium">Note:</span> {outputs.boundsWarning}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function HeroMetrics() {
   const { state } = useSimulation();
   const { outputs, isCalculating } = state;
@@ -71,25 +104,6 @@ export function HeroMetrics() {
           </div>
         </div>
 
-        {/* Warning banner if breach */}
-        {outputs?.breachYear && (
-          <div className="mt-2 px-3 py-2 bg-red-50 border border-red-200 rounded-md">
-            <p className="text-sm text-red-800">
-              <span className="font-medium">Warning:</span> Fiscal limit breached in{' '}
-              {outputs.breachYear}
-              {outputs.breachReason && ` (${outputs.breachReason})`}
-            </p>
-          </div>
-        )}
-
-        {/* Bounds warning if any */}
-        {outputs?.boundsWarning && (
-          <div className="mt-2 px-3 py-2 bg-yellow-50 border border-yellow-200 rounded-md">
-            <p className="text-sm text-yellow-800">
-              <span className="font-medium">Note:</span> {outputs.boundsWarning}
-            </p>
-          </div>
-        )}
       </div>
     </div>
   );

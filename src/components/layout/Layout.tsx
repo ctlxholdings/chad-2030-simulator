@@ -3,7 +3,7 @@
  */
 
 import { Header } from './Header';
-import { HeroMetrics } from './HeroMetrics';
+import { HeroMetrics, HeroAlerts } from './HeroMetrics';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -19,6 +19,8 @@ export function Layout({ children }: LayoutProps) {
       </div>
       {/* Spacer to push content below fixed header */}
       <div className="h-[120px] sm:h-[130px]" />
+      {/* Alerts rendered below fixed header, in normal document flow */}
+      <HeroAlerts />
       <main className="flex-1 bg-gray-50 overflow-x-hidden">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-6 overflow-x-hidden">{children}</div>
       </main>
